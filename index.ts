@@ -1,21 +1,15 @@
-import { ProfileService } from "./profile.service";
+import { ProfileService } from './profile.service';
 
-const profileService = new ProfileService();
+async function bootstrap() {
+	const profileService = new ProfileService();
 
-const myProfile = profileService.getProfile();
+	console.log("get profile from psql");
+	const myProfile = await profileService.getProfile();
+	console.log(myProfile);
 
-console.log("имя и описание");
-console.log(`имя: ${myProfile.name}`);
-console.log(`описание: ${myProfile.description}`);
+	console.log("\nadd new skill");
+	const newSkill = await profileService.addSkill("NestJS");
+	console.log("added skill:", newSkill);
+}
 
-console.log("\nсписок навыков");
-myProfile.skills.forEach((skill) => {
-    console.log(`- [${skill.id}] ${skill.name}`);
-});
-
-console.log("\nдобавление нового навыка");
-const addedSkill = profileService.addSkill("NestJS");
-console.log(`добавлен: ${addedSkill.name} (ID: ${addedSkill.id})`);
-
-console.log("\nвсе проекты");
-console.log(myProfile.projects);
+bootstrap().catch(console.error);
