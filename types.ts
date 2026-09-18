@@ -21,7 +21,7 @@ export interface Profile {
 	id: number;
 	name: string;
 	description: string;
-	githuburl: string;
+	githubUrl: string;
 	skills: Skill[];
 	experience: Experience[];
 	projects: Project[];
