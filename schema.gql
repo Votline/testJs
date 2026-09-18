@@ -1,0 +1,40 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type SkillType {
+  id: ID!
+  name: String!
+}
+
+type ExperienceType {
+  id: ID!
+  company: String!
+  position: String!
+  period: String!
+  achievments: String!
+}
+
+type ProjectType {
+  id: ID!
+  name: String!
+  url: String!
+}
+
+type ProfileType {
+  id: ID!
+  name: String!
+  description: String!
+  githubUrl: String!
+  skills: [SkillType!]!
+  experience: [ExperienceType!]!
+  projects: [ProjectType!]!
+}
+
+type Query {
+  getProfile: ProfileType
+}
+
+type Mutation {
+  addSkill(name: String!): SkillType!
+}

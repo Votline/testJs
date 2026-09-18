@@ -1,15 +1,11 @@
-import { ProfileService } from './profile.service';
+import 'reflect-metadata';
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app.module';
 
 async function bootstrap() {
-	const profileService = new ProfileService();
-
-	console.log("get profile from psql");
-	const myProfile = await profileService.getProfile();
-	console.log(myProfile);
-
-	console.log("\nadd new skill");
-	const newSkill = await profileService.addSkill("NestJS");
-	console.log("added skill:", newSkill);
+	const app = await NestFactory.create(AppModule);
+	await app.listen(3000);
+	console.log('GraphQL доступен по адресу: http://localhost:3000/graphql');
 }
 
-bootstrap().catch(console.error);
+bootstrap();
