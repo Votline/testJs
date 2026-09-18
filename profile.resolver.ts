@@ -68,7 +68,7 @@ class ProfileType {
 export class ProfileResolver {
 	constructor(private profileService: ProfileService) {}
 
-	@Query(() => ProfileType, { nullable: true })
+	@Query(() => ProfileType, { name: 'profile', nullable: true })
 	async getProfile() {
 		return this.profileService.getProfile();
 	}

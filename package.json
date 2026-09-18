@@ -8,7 +8,9 @@
     "typescript": "^7.0.2"
   },
   "scripts": {
-    "postinstall": "prisma skills sync || exit 0"
+    "postinstall": "prisma skills sync || exit 0",
+    "build": "npx tsc",
+    "start": "npx prisma migrate deploy && node dist/prisma/seed.js && node dist/index.js"
   },
   "prisma": {
     "seed": "npx tsx prisma/seed.ts"

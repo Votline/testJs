@@ -32,7 +32,7 @@ type ProfileType {
 }
 
 type Query {
-  getProfile: ProfileType
+  profile: ProfileType
 }
 
 type Mutation {
